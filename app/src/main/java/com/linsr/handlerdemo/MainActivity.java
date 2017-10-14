@@ -1,6 +1,8 @@
 package com.linsr.handlerdemo;
 
+import android.app.Dialog;
 import android.nfc.NdefRecord;
+import android.nfc.Tag;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -8,6 +10,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +39,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.textaaa).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"====");
+                //dialog 使用application的context 会报错
+                Dialog dialog = new Dialog(getApplicationContext());
+                dialog.show();
+            }
+        });
 
-
-        sendMsgFromChildThread();
+//        sendMsgFromChildThread();
 
 //        useHandlerOnChildThread();
     }

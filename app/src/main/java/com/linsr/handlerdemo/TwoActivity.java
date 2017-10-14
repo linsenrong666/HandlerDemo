@@ -1,11 +1,14 @@
 package com.linsr.handlerdemo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -26,6 +29,10 @@ public class TwoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mMyHandler = new MyHandler(this);
         mMyHandler.sendEmptyMessage(0);
+        Parcelable parcelable;
+        Parcel parcel;
+        Context context;
+        Activity activity;
     }
 
     private static class MyHandler extends Handler {
